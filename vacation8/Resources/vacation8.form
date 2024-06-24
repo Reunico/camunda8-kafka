@@ -1,0 +1,23 @@
+{
+  "components": [
+    {
+      "label": "Text field",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0xvhziy",
+        "columns": null
+      },
+      "id": "Field_0vi85u6",
+      "key": "textfield_pgzvcl"
+    }
+  ],
+  "type": "default",
+  "id": "vacation8",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.5.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.24.0"
+  },
+  "schemaVersion": 16
+}
