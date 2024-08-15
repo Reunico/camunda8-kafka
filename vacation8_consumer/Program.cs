@@ -11,6 +11,7 @@ class Program
     private static String clientID;
     private static String clientSecret;
     private static String clusterURL;
+    private static String zeebeUrl;
     private static IZeebeClient zeebeClient;
     private static readonly String kafkaServer = "localhost:9092";
     private static ConsumerConfig consumerConfig;
@@ -26,13 +27,20 @@ class Program
         clientID = config["clientID"];
         clientSecret = config["clientSecret"];
         clusterURL = config["clusterURL"];
+         zeebeUrl = config["zeebeUrl"];
 
-        zeebeClient = CamundaCloudClientBuilder
+        /*zeebeClient = CamundaCloudClientBuilder
                   .Builder()
                   .UseClientId(clientID)
                   .UseClientSecret(clientSecret)
                   .UseContactPoint(clusterURL)
-                  .Build();
+                  .Build();*/
+
+        // create zeebe client
+        zeebeClient = ZeebeClient.Builder()
+            .UseGatewayAddress(zeebeUrl)
+            .UsePlainText()
+            .Build();
         
         var topology = await zeebeClient.TopologyRequest().Send();
         
