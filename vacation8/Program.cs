@@ -13,7 +13,7 @@ class Program
     private static String clientID;
     private static String clientSecret;
     private static String clusterURL;
-    private static String zeebeUrl;
+    private static readonly String zeebeUrl = "localhost:26500";
     private static IZeebeClient zeebeClient;
     private static readonly String bpmnFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../Resources", "vacation8.bpmn");
     private static readonly String jobType = "put";
@@ -32,7 +32,6 @@ class Program
         clientID = config["clientID"];
         clientSecret = config["clientSecret"];
         clusterURL = config["clusterURL"];
-        zeebeUrl = config["zeebeUrl"];
 
         /*zeebeClient = CamundaCloudClientBuilder
                   .Builder()
